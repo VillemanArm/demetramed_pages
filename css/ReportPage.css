@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: 'Montserrat Alternates integral';
+    src: url('/fonts/montserrat_alternates_cyrillic_500.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Montserrat Alternates integral';
+    src: url('/fonts/montserrat_alternates_latin_500.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Montserrat Alternates integral';
+    src: url('/fonts/montserrat_alternates_cyrillic_600.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Montserrat Alternates integral';
+    src: url('/fonts/montserrat_alternates_latin_600.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+}
+
+:root {
+    --primary-font-color: #232935;
+    --primary-background-color: #FFFFFF;
+
+    --active-color: #8193F8;
+    --non-active-color: #A5A4A5;
+    --in-process-color: #E2F2F2;
+
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 0.0523vw
+}
+
+body {
+    min-height: 100vh;
+    padding: 8rem 84rem 52rem 84rem;
+
+    font-size: 16rem;
+    line-height: 120%;
+    font-weight: 500;
+
+    background-color: var(--primary-background-color);
+    font-family: 'Montserrat Alternates', 'Montserrat Alternates integral', sans-serif;
+    color: var(--primary-font-color);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+svg {
+
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--active-color);
+    text-decoration: underline;
+}
+
+input {
+    outline: 0;
+    border: none;
+    background: #fff;
+
+}
+
+button {
+    outline: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.report__back {
+    display: block;
+    margin-bottom: 16rem;
+  
+    color: var(--non-active-color);
+}
+
+.report__info-card {
+    width: 513rem;
+    padding: 22rem 32rem 72rem 32rem;
+    margin-bottom: 32rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18rem 44rem;
+    position: relative;
+
+    border: 1rem solid var(--non-active-color);
+    border-radius: 4rem;
+}
+
+.report__info-edit {
+    width: 60rem;
+    height: 60rem;
+    position: absolute;
+    bottom: 24rem;
+    right: 24rem;
+
+    cursor: pointer;
+}
+
+.report__info-edit:hover {
+    fill: var(--active-color);
+}
+
+.report__button {
+    padding: 12rem 16rem;
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+
+    font-size: 16rem;
+    font-weight: 600;
+    
+    border-radius: 8rem;
+    background-color: var(--active-color);
+    border: 2rem solid var(--active-color);
+    color: var(--white);
+    
+    transition: all 0.3s ease-in-out;
+}
+
+.report__button:hover>svg{
+    fill: var(--active-color)
+}
+
+.report__button:hover {
+    background-color: transparent;
+    color: var(--active-color);
+}
+
+.report__button>svg {
+    width: 20rem;
+    height: 20rem;
+}
+
+.report__button>span {
+    display: inline-block;
+}
+
+.report {
+    width: 320rem;
+    font-size: 20rem; }
+  
+/* .report__button {
+    padding: 18rem 14rem;
+    margin-bottom: 32rem;
+    display: flex;
+    align-items: center;
+    font-size: 18rem; 
+}
+
+    .report__button > svg {
+      width: 24rem;
+      height: 24rem;
+      transition: all 0.3s ease-in-out; }
+    .report__button:hover svg {
+      fill: var(--active-color); } */
+  
+.report__analysis-status {
+    width: 320rem;
+    margin:32rem 0 24rem 0;
+    display: flex;
+    gap: 8rem; 
+}
+  
+.report__analysis-status--success {
+    color: var(--active-color); 
+}
+  
+.report__analysis-status-icon {
+    width: 24rem;
+    height: 24rem; 
+}
+  
+.report__analysis {
+    width: 320rem;
+    margin-left: 32rem;
+    display: grid;
+    gap: 8rem; 
+}
+
+.report__analysis > span:last-child {
+    color: var(--active-color); 
+}
+  
