@@ -103,6 +103,11 @@ button {
     color: var(--non-active-color);
 }
 
+.report__wrap {
+    display: flex;
+    column-gap: 44rem;
+}
+
 .report__info-card {
     width: 513rem;
     padding: 22rem 32rem 72rem 32rem;
@@ -164,25 +169,6 @@ button {
 .report__button>span {
     display: inline-block;
 }
-
-.report {
-    width: 320rem;
-    font-size: 20rem; }
-  
-/* .report__button {
-    padding: 18rem 14rem;
-    margin-bottom: 32rem;
-    display: flex;
-    align-items: center;
-    font-size: 18rem; 
-}
-
-    .report__button > svg {
-      width: 24rem;
-      height: 24rem;
-      transition: all 0.3s ease-in-out; }
-    .report__button:hover svg {
-      fill: var(--active-color); } */
   
 .report__analysis-status {
     width: 320rem;
@@ -210,4 +196,84 @@ button {
 .report__analysis > span:last-child {
     color: var(--active-color); 
 }
-  
+
+.report__viewer {
+    display: flex;
+    gap: 55rem;
+}
+
+.report__viewer-image {
+    width: 880rem;
+    height: 880rem;
+    position: relative;
+
+    border: 1rem solid black
+}
+
+.report__viewer-image-controls {
+    position: absolute;
+    z-index: 1;
+    top: 16rem;
+    right: 16rem;
+    display: flex;
+    column-gap: 16rem;
+}
+
+.report__viewer-image-controls>svg {
+    width: 32rem;
+    height: 32rem;
+
+    cursor: pointer;
+}
+
+.report__viewer-image-controls>svg:not(:last-child):hover {
+    fill: var(--active-color);
+}
+
+.report__viewer-image-controls>svg:last-child {
+    transform: scale(1.125);
+}
+
+.report__viewer-image-controls>svg:last-child:hover {
+    stroke: var(--active-color);
+}
+
+.report__viewer-objects-title {
+  margin-bottom: 32rem;
+
+  font-size: 20rem;
+  line-height: 120%;
+  font-weight: 600;
+  white-space: nowrap;
+
+  color: var(--active-color);
+}
+
+.report__viewer-object-title {
+  margin-bottom: 6rem;
+
+  font-size: 18rem;
+  line-height: 120%;
+}
+
+.report__viewer-object-img {
+  width: 224rem;
+  height: 156rem;
+
+  cursor: pointer;
+}
+
+.report__viewer-objects-list {
+  height: 822rem;
+  display: grid;
+  gap: 18rem;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.report__viewer-objects-list::-webkit-scrollbar {
+    display: none;
+}
+
