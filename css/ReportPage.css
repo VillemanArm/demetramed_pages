@@ -207,7 +207,7 @@ button {
     height: 880rem;
     position: relative;
 
-    border: 1rem solid black
+    border: 1rem solid var(--non-active-color);
 }
 
 .report__viewer-image-controls {
