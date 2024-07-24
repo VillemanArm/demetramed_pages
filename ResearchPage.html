@@ -78,24 +78,9 @@
             <input
                 type="text"
                 placeholder="Поиск"
-                clear-icon="close"
                 class="toolbar__search"
+            />
 
-
-            >
-                <template v-slot:prepend>
-                    <SearchIcon style="width: 20rem; height: 20rem" />
-                </template>
-                <template v-slot:append>
-                    <q-icon
-                        v-if="NavStore.searchQuery"
-                        name="close"
-                        @click="NavStore.searchQuery = ''"
-                        class="cursor-pointer"
-                        size="20rem"
-                    />
-                </template>
-            </input>
             <div class="toolbar__nav">
                 <a href="#" class="toolbar__option toolbar__option--active">
                     Исследования

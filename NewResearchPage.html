@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/ResearchPage.css">
+    <link rel="stylesheet" href="./css/NewResearchPage.css">
     <title>Demetramed</title>
 </head>
 <body>
@@ -78,24 +78,8 @@
             <input
                 type="text"
                 placeholder="Поиск"
-                clear-icon="close"
                 class="toolbar__search"
-
-
-            >
-                <template v-slot:prepend>
-                    <SearchIcon style="width: 20rem; height: 20rem" />
-                </template>
-                <template v-slot:append>
-                    <q-icon
-                        v-if="NavStore.searchQuery"
-                        name="close"
-                        @click="NavStore.searchQuery = ''"
-                        class="cursor-pointer"
-                        size="20rem"
-                    />
-                </template>
-            </input>
+            />
             <div class="toolbar__nav">
                 <a href="#" class="toolbar__option toolbar__option--active">
                     Исследования
@@ -106,11 +90,129 @@
             </div>
         </div>
         <div class="nav__viewer">
-            <ResearchListModule v-if="NavStore.modulesInViewer.ResearchList" />
-            <ReportsListModule v-if="NavStore.modulesInViewer.ReportsList" />
-        </div>
+            <form
+                action=""
+                class="form"
+            >
+                <div class="form__close">
+                <svg
+                    width="19"
+                    height="18"
+                    viewBox="0 0 19 18"
+                    fill="#A5A4A5"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M3.02092 0.961175C2.6429 0.603052 2.02999 0.603061 1.65198 0.961176C1.27397 1.31929 1.27396 1.89994 1.65198 2.25807L8.26852 8.52637L1.65198 14.7947C1.27396 15.1528 1.27397 15.7334 1.65198 16.0916C2.02999 16.4497 2.6429 16.4497 3.02092 16.0916L9.63746 9.82326L16.254 16.0916C16.632 16.4497 17.2449 16.4497 17.6229 16.0916C18.001 15.7334 18.001 15.1528 17.6229 14.7947L11.0064 8.52637L17.6229 2.25806C18.001 1.89995 18.001 1.31929 17.6229 0.961176C17.2449 0.603061 16.632 0.60306 16.254 0.961174L9.63746 7.22948L3.02092 0.961175Z"
+                        fill="evenodd"
+                    />
+                </svg>
+                </div>
+                <span class="form__date">24/07/2024</span>
+                
+                <div class="form__fields">
+                    <label for="researchNumber">№Исследования:</label>
+                    <input
+                        class="form__input-field"
+                        type="text"
+                        id="researchNumber"
+                    />
+                    <label for="patientName">ФИО пациента:</label>
+                    <input
+                        class="form__input-field"
+                        type="text"
+                        id="patientName"
+                    />
+                    <label for="patientAge">Возраст:</label>
+                    <input
+                        class="form__input-field"
+                        type="number"
+                        id="patientAge"
+                        max="120"
+                        min="1"
+                    />
+                    <label for="institutionByReferral">Направившее учреждение:</label>
+                    <input
+                        class="form__input-field"
+                        type="text"
+                        id="institutionByReferral"
+                    />
+                    <label for="doctorsName">ФИО лечащего врача:</label>
+                    <input
+                        class="form__input-field"
+                        type="text"
+                        id="doctorsName"
+                    />
+                    <label for="diagnosis">Клинический диагноз:</label>
+                    <input
+                        class="form__input-field"
+                        type="text"
+                        id="diagnosis"
+                    />
+                    <label for="comment">Комментарий:</label>
+                    <input
+                        class="form__input-field"
+                        type="text"
+                        id="comment"
+                    />
+                    <label for="file">Загрузить файл:</label>
+                    <input
+                        type="file"
+                        id="file"
+                        class="form__file-input"
+                    />
+                </div>
 
-    </main>
-    
+                <div class="form__buttons">
+                    <button class="form__button">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="#8193F8"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M20.5762 7.48016C20.8414 7.16195 20.7984 6.68903 20.4802 6.42385C20.1619 6.15868 19.689 6.20167 19.4239 6.51988L14.0332 12.9887C12.9503 14.2881 12.1886 15.1994 11.5279 15.796C10.8826 16.3787 10.4373 16.5639 10 16.5639C9.56276 16.5639 9.11742 16.3787 8.47213 15.796C7.81143 15.1994 7.04969 14.2881 5.96686 12.9887L4.57618 11.3199C4.31101 11.0017 3.83809 10.9587 3.51988 11.2239C3.20167 11.489 3.15868 11.9619 3.42385 12.2802L4.85312 13.9953C5.88839 15.2376 6.71748 16.2326 7.46684 16.9092C8.24089 17.6082 9.03216 18.0639 10 18.0639C10.9679 18.0639 11.7591 17.6082 12.5332 16.9092C13.2826 16.2326 14.1116 15.2377 15.1469 13.9953L20.5762 7.48016Z"
+                                fill="evenodd"
+                            />
+                        </svg>
+                        <span>Сохранить и закрыть</span>
+                    </button>
+                    <button class="form__button">
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="#8193F8"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M20.5762 7.48016C20.8414 7.16195 20.7984 6.68903 20.4802 6.42385C20.1619 6.15868 19.689 6.20167 19.4239 6.51988L14.0332 12.9887C12.9503 14.2881 12.1886 15.1994 11.5279 15.796C10.8826 16.3787 10.4373 16.5639 10 16.5639C9.56276 16.5639 9.11742 16.3787 8.47213 15.796C7.81143 15.1994 7.04969 14.2881 5.96686 12.9887L4.57618 11.3199C4.31101 11.0017 3.83809 10.9587 3.51988 11.2239C3.20167 11.489 3.15868 11.9619 3.42385 12.2802L4.85312 13.9953C5.88839 15.2376 6.71748 16.2326 7.46684 16.9092C8.24089 17.6082 9.03216 18.0639 10 18.0639C10.9679 18.0639 11.7591 17.6082 12.5332 16.9092C13.2826 16.2326 14.1116 15.2377 15.1469 13.9953L20.5762 7.48016Z"
+                                fill="evenodd"
+                            />
+                        </svg>
+                        <span>Сохранить и остаться</span>
+                    </button>
+                    <button class="form__button form__button--outline"">
+                        <svg
+                            width="19"
+                            height="18"
+                            viewBox="0 0 19 18"
+                            fill="#A5A4A5"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M3.02092 0.961175C2.6429 0.603052 2.02999 0.603061 1.65198 0.961176C1.27397 1.31929 1.27396 1.89994 1.65198 2.25807L8.26852 8.52637L1.65198 14.7947C1.27396 15.1528 1.27397 15.7334 1.65198 16.0916C2.02999 16.4497 2.6429 16.4497 3.02092 16.0916L9.63746 9.82326L16.254 16.0916C16.632 16.4497 17.2449 16.4497 17.6229 16.0916C18.001 15.7334 18.001 15.1528 17.6229 14.7947L11.0064 8.52637L17.6229 2.25806C18.001 1.89995 18.001 1.31929 17.6229 0.961176C17.2449 0.603061 16.632 0.60306 16.254 0.961174L9.63746 7.22948L3.02092 0.961175Z"
+                                fill="evenodd"
+                            />
+                        </svg>
+                        <span>Очистить</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </main>   
 </body>
 </html>
