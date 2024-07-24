@@ -197,3 +197,114 @@ main {
     text-decoration: underline; 
     cursor: default; 
 }
+
+.list {
+    padding: 32rem 45rem 32rem 45rem; 
+}
+  
+.list__items {
+    min-height: 700rem;
+    margin-bottom: 32rem;
+    display: grid;
+    gap: 16rem;
+    align-content: start; 
+}
+  
+.list__pagination {
+    margin-bottom: 32rem; 
+}
+
+.list-toolbar {
+    display: flex;
+    margin-bottom: 32rem; 
+}
+  
+.list-toolbar__button {
+    height: 52rem;
+    padding: 0 14rem;
+    margin-right: 23rem; 
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+
+    font-size: 16rem;
+    font-weight: 600;
+    
+    border-radius: 8rem;
+    background-color: var(--active-color);
+    border: 2rem solid var(--active-color);
+    color: var(--white);
+    
+    transition: all 0.3s ease-in-out;
+}
+
+.list-toolbar__button:hover{
+    background-color: transparent;
+    color: var(--active-color);
+}
+
+.list-toolbar__button:hover svg {
+    fill: var(--active-color);
+    stroke: var(--active-color); 
+}
+  
+.list-toolbar__filter {
+    display: flex; 
+}
+  
+.list-toolbar__filter-option {
+    height: 52rem;
+    display: flex;
+    padding: 0 34rem;
+    gap: 16rem;
+    align-items: center;
+    background-color: transparent;
+    color: var(--ntoolbaron-active-color);
+    border: 2rem solid var(--non-active-color);
+    border-radius: 0; 
+}
+
+.list-toolbar__filter-option:first-child {
+    border-top-left-radius: 8rem;
+    border-bottom-left-radius: 8rem; 
+}
+.list-toolbar__filter-option:last-child {
+    border-top-right-radius: 8rem;
+    border-bottom-right-radius: 8rem; 
+}
+.list-toolbar__filter-option:hover {
+    border-color: var(--active-color);
+    color: var(--active-color); 
+}
+.list-toolbar__filter-option--active {
+    border-color: var(--active-color);
+    color: var(--active-color); 
+}
+  
+.list-toolbar__sort-direction {
+    display: grid;
+    gap: 6rem; 
+}
+
+.list-toolbar__sort-direction svg {
+    width: 10rem;
+    height: 10rem;
+    cursor: pointer; 
+}
+
+.list-toolbar__sort-direction svg:hover {
+    fill: var(--active-color); 
+}
+
+.list-toolbar__sort-direction svg:first-child {
+    transform: rotate(-90deg) scale(2.2); 
+}
+
+.list-toolbar__sort-direction svg:last-child {
+    transform: rotate(90deg) scale(2.2); 
+}
+
+.list-toolbar__sort-direction--active {
+    fill: var(--active-color); 
+}
+  

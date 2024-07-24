@@ -105,8 +105,170 @@
             </div>
         </div>
         <div class="nav__viewer">
-            <ResearchListModule v-if="NavStore.modulesInViewer.ResearchList" />
-            <ReportsListModule v-if="NavStore.modulesInViewer.ReportsList" />
+            <div class="list">
+                <div
+        class="list-toolbar"
+        v-if="!researchStore.isNewResearchForm"
+    >
+        <button
+            class="list-toolbar__button"
+        >
+        <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="white"
+            stroke="white"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g clip-path="url(#clip0_261_529)">
+                <path
+                    d="M10.6252 3.33325C10.6252 2.98807 10.3453 2.70825 10.0002 2.70825C9.65498 2.70825 9.37516 2.98807 9.37516 3.33325L9.37516 9.37492H3.3335C2.98832 9.37492 2.7085 9.65474 2.7085 9.99992C2.7085 10.3451 2.98832 10.6249 3.3335 10.6249H9.37516V16.6666C9.37516 17.0118 9.65498 17.2916 10.0002 17.2916C10.3453 17.2916 10.6252 17.0118 10.6252 16.6666V10.6249H16.6668C17.012 10.6249 17.2918 10.3451 17.2918 9.99992C17.2918 9.65474 17.012 9.37492 16.6668 9.37492H10.6252L10.6252 3.33325Z"
+                    fill="evenodd"
+                    stroke="evenodd"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                />
+            </g>
+            <defs>
+                <clipPath id="clip0_261_529">
+                    <rect
+                        width="20"
+                        height="20"
+                        fill="evenodd"
+                    />
+                </clipPath>
+            </defs>
+        </svg>
+            <span>Добавить исследование</span>
+        </button>
+        <div class="list-toolbar__filter">
+            <div class="list-toolbar__filter-option">
+                <span>По дате</span>
+                <div class="list-toolbar__sort-direction">
+                    <NextIcon
+                        @click="
+                            researchStore.setSortRequestParameters(
+                                'date',
+                                false
+                            )
+                        "
+                        :class="{
+                            'list-toolbar__sort-direction--active':
+                                researchStore.listRequestParameters
+                                    .sortOption === 'date' &&
+                                researchStore.listRequestParameters
+                                    .sortDescending === false,
+                        }"
+                    />
+                    <NextIcon
+                        @click="
+                            researchStore.setSortRequestParameters('date', true)
+                        "
+                        :class="{
+                            'list-toolbar__sort-direction--active':
+                                researchStore.listRequestParameters
+                                    .sortOption === 'date' &&
+                                researchStore.listRequestParameters
+                                    .sortDescending === true,
+                        }"
+                    />
+                </div>
+            </div>
+            <div class="list-toolbar__filter-option">
+                <span>По пациенту</span>
+                <div class="list-toolbar__sort-direction">
+                    <NextIcon
+                        @click="
+                            researchStore.setSortRequestParameters(
+                                'name',
+                                false
+                            )
+                        "
+                        :class="{
+                            'list-toolbar__sort-direction--active':
+                                researchStore.listRequestParameters
+                                    .sortOption === 'name' &&
+                                researchStore.listRequestParameters
+                                    .sortDescending === false,
+                        }"
+                    />
+                    <NextIcon
+                        @click="
+                            researchStore.setSortRequestParameters('name', true)
+                        "
+                        :class="{
+                            'list-toolbar__sort-direction--active':
+                                researchStore.listRequestParameters
+                                    .sortOption === 'name' &&
+                                researchStore.listRequestParameters
+                                    .sortDescending === true,
+                        }"
+                    />
+                </div>
+            </div>
+            <div class="list-toolbar__filter-option">
+                <span>По номеру исследования</span>
+                <div class="list-toolbar__sort-direction">
+                    <NextIcon
+                        @click="
+                            researchStore.setSortRequestParameters(
+                                'number',
+                                false
+                            )
+                        "
+                        :class="{
+                            'list-toolbar__sort-direction--active':
+                                researchStore.listRequestParameters
+                                    .sortOption === 'number' &&
+                                researchStore.listRequestParameters
+                                    .sortDescending === false,
+                        }"
+                    />
+                    <NextIcon
+                        @click="
+                            researchStore.setSortRequestParameters(
+                                'number',
+                                true
+                            )
+                        "
+                        :class="{
+                            'list-toolbar__sort-direction--active':
+                                researchStore.listRequestParameters
+                                    .sortOption === 'number' &&
+                                researchStore.listRequestParameters
+                                    .sortDescending === true,
+                        }"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+                <div
+                    class="list__items"
+                    v-if="!researchStore.isNewResearchForm"
+                >
+                    <ResearchListItem
+                        v-for="researchItem in researchStore.searchedAndSortedResearchItems.slice(
+                            displayedItemsFrom,
+                            displayedItemsTo
+                        )"
+                        :researchItem="researchItem"
+                        :key="researchItem.id"
+                    />
+                </div>
+        
+                <BasePagination
+                    v-if="maxPages > 1 && !researchStore.isNewResearchForm"
+                    :maxPages="maxPages"
+                    :currentPage="currentPage"
+                    @changePage="(value) => setCurrentPage(value)"
+                    class="float-right list__pagination"
+                />
+        
+                <NewResearchForm v-if="researchStore.isNewResearchForm" />
+            </div>
+
         </div>
 
     </main>
